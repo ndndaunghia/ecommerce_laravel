@@ -1,3 +1,22 @@
-<x-app-layout>
+<!DOCTYPE html>
+<html lang="en">
 
-</x-app-layout>
+<head>
+    @include('admin.css')
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_sidebar.html -->
+        @include('admin.slidebar')
+        <!-- partial -->
+        @include('admin.header')
+        <!-- partial -->
+        @include('admin.body')
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+        @include('admin.script')
+        <!-- End custom js for this page -->
+</body>
+
+</html>
