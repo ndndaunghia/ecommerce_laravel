@@ -18,6 +18,21 @@
         .input_color {
             color: black;
         }
+
+        .center {
+            margin: auto;
+            width: 50%;
+            text-align: center;
+            margin-top: 30px;
+            /* border: 3px solid green; */
+        }
+
+        tr,
+        td,
+        th {
+            border: 3px solid green;
+            border-collapse: collapse;
+        }
     </style>
 </head>
 
@@ -42,10 +57,29 @@
                     </h2>
                     <form action="{{url('/add_category')}}" method="post">
                         @csrf
-                        <input type="text" class="input_color" name="category" placeholder="Write category name"><br>
+                        <input type="text" class="input_color" name="category" placeholder="Write category name">
                         <input type="submit" class="btn btn-primary" value="Add">
                     </form>
                 </div>
+
+                <table class="center">
+                    <tr>
+                        <th>Category Name</th>
+                        <th>Action</th>
+                    </tr>
+
+                    @foreach($data as $data)
+
+                    <tr>
+                        <td>{{ $data->category_name }}</td>
+                        <td>
+                            <a onclick="return confirm('Are You Sure To Delete This Category')"
+                            href="{{ url('delete_category', $data->id) }}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    @endforeach
+                </table>
             </div>
         </div>
         <!-- container-scroller -->
