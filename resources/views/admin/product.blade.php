@@ -80,7 +80,7 @@
                         </div>
                         <div class="div_design">
                             <label for="title">Discount</label>
-                            <input type="number" name="discount_price" class="text_color" required>
+                            <input type="number" name="discount_price" class="text_color">
                         </div>
                         <div class="div_design">
                             <label for="title">Quantity</label>
