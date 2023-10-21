@@ -20683,7 +20683,9 @@ div.tagsinput {
       -webkit-transition-property: background;
       padding-right: 20px; }
       .sidebar .nav .nav-item .collapse {
-        z-index: 999; }
+        z-index: 999;
+        visibility: visible;
+      }
       .sidebar .nav .nav-item .nav-link {
         display: -webkit-flex;
         display: flex;
