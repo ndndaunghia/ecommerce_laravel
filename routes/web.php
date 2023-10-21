@@ -51,6 +51,17 @@ Route::get("/product_details/{id}", [HomeController::class, "product_details"]);
 
 Route::post("/add_cart/{id}", [HomeController::class, "add_cart"]);
 
+Route::get("/show_cart", [HomeController::class, "show_cart"]);
+
+Route::get("/remove_product_cart/{id}", [HomeController::class, "remove_product_cart"]);
+
+Route::patch("/update_cart/{id}", [HomeController::class, "update_cart"]);
+
+
+
+
+
+
 
 
 

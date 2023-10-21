@@ -21,6 +21,7 @@
     <link href="home/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="home/css/responsive.css" rel="stylesheet" />
+    <!-- Trong phần head của trang -->
 </head>
 
 <body>
