@@ -189,16 +189,11 @@ class HomeController extends Controller
             "description" => "Thank you for your payment"
 
         ]);
-
+        
         $user = Auth::user();
         $userId = $user->id;
 
         $cartItems = Cart::where('user_id', '=', $userId)->get();
-
-        if ($cartItems->isEmpty()) {
-            // Giỏ hàng trống, không có gì để đặt hàng
-            return;
-        }
 
         $order = new Order();
         $order->name = $user->name;
@@ -228,9 +223,9 @@ class HomeController extends Controller
         $order->save();
 
         Cart::where('user_id', '=', $userId)->delete();
-
+        
         Session::flash('success', 'Payment successful!');
 
-        return back();
+        return redirect()->back();
     }
 }

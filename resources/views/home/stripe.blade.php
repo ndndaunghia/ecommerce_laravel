@@ -21,6 +21,9 @@
     input[type=text]{
         font-size: 14px;
     }
+    .dropdown-toggle::after {
+        display: none !important;
+    }
 </style>
 
 <body>
@@ -139,7 +142,7 @@
             </div>
 
         </div>
-    </div>
+    
 
 </body>
 
