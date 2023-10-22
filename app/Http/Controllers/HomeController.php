@@ -182,7 +182,7 @@ class HomeController extends Controller
 
             "amount" => $subTotal,
 
-            "currency" => "vnd",
+            "currency" => "usd",
 
             "source" => $request->stripeToken,
 
