@@ -59,7 +59,9 @@ Route::patch("/update_cart/{id}", [HomeController::class, "update_cart"]);
 
 Route::get("/cash_order", [HomeController::class, "cash_order"]);
 
+Route::get("/stripe/{subTotal}", [HomeController::class, "stripe"]);
 
+Route::post('stripe/{subTotal}', [HomeController::class, 'stripePost'])->name('stripe.post');
 
 
 
