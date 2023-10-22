@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Cart;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -60,7 +61,7 @@ class HomeController extends Controller
                 $cart->address = $user->address;
                 $cart->user_id = $user->id;
                 $cart->product_title = $product->title;
-                
+
                 $cart->image = $product->image;
                 $cart->product_id = $product->id;
                 $cart->quantity = $request->quantity;
@@ -120,5 +121,48 @@ class HomeController extends Controller
         $cart->total_price = $cart->price_per_one * $cart->quantity;
         $cart->save();
         return redirect()->back()->with("success", "Cart updated successfully");
+    }
+
+    public function cash_order()
+    {
+        $user = Auth::user();
+        $userId = $user->id;
+
+        $cartItems = Cart::where('user_id', '=', $userId)->get();
+
+        if ($cartItems->isEmpty()) {
+            // Giỏ hàng trống, không có gì để đặt hàng
+            return;
+        }
+
+        $order = new Order();
+        $order->name = $user->name;
+        $order->email = $user->email;
+        $order->address = $user->address;
+        $order->phone = $user->phone;
+        $order->user_id = $userId;
+        $order->product_item = collect();
+
+        $totalPrice = 0; 
+
+        foreach ($cartItems as $cartItem) {
+            $productItem = [
+                'product_title' => $cartItem->product_title,
+                'quantity' => $cartItem->quantity,
+                'price' => $cartItem->total_price,
+                'image' => $cartItem->image
+            ];
+            $order->product_item->push($productItem); 
+            $totalPrice += $cartItem->total_price;
+        }
+
+        $order->total_price = $totalPrice; 
+        $order->payment_status = 'cash on delivery';
+        $order->delivery_status = 'processing';
+
+        $order->save();
+
+        Cart::where('user_id', '=', $userId)->delete();
+        return redirect()->back()->with("success", "Order updated successfully");
     }
 }

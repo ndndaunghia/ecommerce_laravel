@@ -57,6 +57,8 @@ Route::get("/remove_product_cart/{id}", [HomeController::class, "remove_product_
 
 Route::patch("/update_cart/{id}", [HomeController::class, "update_cart"]);
 
+Route::get("/cash_order", [HomeController::class, "cash_order"]);
+
 
 
 
