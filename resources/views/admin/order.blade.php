@@ -10,11 +10,11 @@
             font-weight: bold;
             padding-bottom: 40px;
         }
-        
+
         .table_deg {
-            width: 100%;
+            max-width: 1000px;
+            /* width: 100%; */
             margin: auto;
-            padding-top: 40px;
             text-align: center;
             border: 2px solid white;
         }
@@ -22,9 +22,11 @@
         .th_deg {
             background-color: green;
         }
-        
-        th, td {
-            padding: 8px;
+
+        th,
+        tr,
+        td {
+            padding: 2px;
         }
     </style>
 </head>
@@ -39,6 +41,21 @@
         <div class="main-panel">
             <div class="content-wrapper">
                 <h1 class="title_deg">All Orders</h1>
+
+                <div style="padding-bottom: 20px;">
+
+                    <form action="{{url('search')}}" method="get">
+
+                        @csrf
+
+                        <input type="text" name="search" style="color: black; padding-right: 20px;" placeholder="Search For Something">
+
+                        <input type="submit" name="submit" class="btn btn-outline-primary" style="padding: 12px 20px;" value="Search">
+
+                    </form>
+
+                </div>
+
                 <table class="table_deg">
                     <tr class="th_deg">
                         <th>Name</th>
@@ -49,9 +66,10 @@
                         <th>Total Price</th>
                         <th>Payment Status</th>
                         <th>Delivery Status</th>
+                        <th>Delivered</th>
                     </tr>
 
-                    @foreach($order as $item)
+                    @forelse($order as $item)
 
                     <tr>
                         <td>{{$item->name}}</td>
@@ -62,9 +80,27 @@
                         <td>{{$item->total_price}}</td>
                         <td>{{$item->payment_status}}</td>
                         <td>{{$item->delivery_status}}</td>
+                        <td>
+                            @if($item->delivery_status == "processing")
+
+                            <a href="{{url('delivered', $item->id)}}" onclick="return confirm('Confirm this product has been delivered')" class="btn btn-primary">Delivered</a>
+
+                            @else
+
+                            <p style="color: green; font-weight: bold;">Delivered</p>
+
+                            @endif
+                        </td>
                     </tr>
 
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="10">
+                            <p style="color: red; font-weight: bold;">No Order Found</p>
+                        </td>
+                    </tr>
+
+                    @endforelse
                 </table>
             </div>
         </div>

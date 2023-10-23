@@ -47,6 +47,11 @@ Route::get("/update_product/{id}", [AdminController::class, "update_product"]);
 
 Route::get("/order", [AdminController::class, "order"]);
 
+Route::get("/delivered/{id}", [AdminController::class, "delivered"]);
+
+Route::get("/search", [AdminController::class, "search_data"]);
+
+
 
 
 Route::post("/update_product_confirm/{id}", [AdminController::class, "update_product_confirm"]);
