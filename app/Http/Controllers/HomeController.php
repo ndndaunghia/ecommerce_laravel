@@ -180,7 +180,7 @@ class HomeController extends Controller
 
         Charge::create([
 
-            "amount" => $subTotal,
+            "amount" => $subTotal * 100,
 
             "currency" => "usd",
 
