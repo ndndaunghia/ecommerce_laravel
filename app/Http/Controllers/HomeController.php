@@ -25,7 +25,20 @@ class HomeController extends Controller
     {
         $usertype  = Auth::user()->usertype;
         if ($usertype == '1') {
-            return view('admin.home');
+            $total_products = Product::all()->count();
+            $total_orders = Order::all()->count();
+            $total_users = User::all()->count();
+            $order = Order::all();
+            $total_revenue = 0;
+
+            foreach ($order as $order) {
+                $total_revenue += $order->total_price;
+            }
+
+            $orders_delivered = Order::where('delivery_status', '=', 'delivered')->get()->count();
+            $orders_processing = Order::where('delivery_status', '=', 'processing')->get()->count();
+
+            return view('admin.home', compact('total_products', 'total_orders', 'total_users', 'total_revenue', 'orders_delivered', 'orders_processing'));
         } else {
             $products = Product::limit(6)->get();
             return view('home.userpage', compact('products'));
@@ -189,7 +202,7 @@ class HomeController extends Controller
             "description" => "Thank you for your payment"
 
         ]);
-        
+
         $user = Auth::user();
         $userId = $user->id;
 
@@ -223,7 +236,7 @@ class HomeController extends Controller
         $order->save();
 
         Cart::where('user_id', '=', $userId)->delete();
-        
+
         Session::flash('success', 'Payment successful!');
 
         return redirect()->back();
