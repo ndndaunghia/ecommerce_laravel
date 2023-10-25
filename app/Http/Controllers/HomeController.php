@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Order;
 use Stripe\Charge;
 use Stripe\Stripe;
@@ -17,8 +18,9 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::paginate(6);
+        $category = Category::all();
 
-        return view('home.userpage', compact('products'));
+        return view('home.userpage', compact('products', 'category'));
     }
 
     public function redirect()
@@ -41,7 +43,8 @@ class HomeController extends Controller
             return view('admin.home', compact('total_products', 'total_orders', 'total_users', 'total_revenue', 'orders_delivered', 'orders_processing'));
         } else {
             $products = Product::limit(6)->get();
-            return view('home.userpage', compact('products'));
+            $category = Category::all();
+            return view('home.userpage', compact('products', 'category'));
         }
     }
 
@@ -240,5 +243,20 @@ class HomeController extends Controller
         Session::flash('success', 'Payment successful!');
 
         return redirect()->back();
+    }
+
+    public function get_product_by_category($category_name)
+    {
+        $category = Category::all();
+        $selected_category = Category::where('category_name', $category_name)->first();
+        $products = Product::where('category', $category_name)->get();
+        return view('home.get_product_by_category', compact('category', 'selected_category', 'products'));
+    }
+
+    public function get_profile(){
+        $user = Auth::user();
+        $category = Category::all();
+
+        return view('home.get_profile', compact('user', 'category'));
     }
 }

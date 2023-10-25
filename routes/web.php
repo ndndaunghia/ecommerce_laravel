@@ -72,9 +72,6 @@ Route::get("/stripe/{subTotal}", [HomeController::class, "stripe"]);
 
 Route::post('stripe/{subTotal}', [HomeController::class, 'stripePost'])->name('stripe.post');
 
+Route::get("/get_product_by_category/{category_name}", [HomeController::class, "get_product_by_category"]);
 
-
-
-
-
-
+Route::get("/get_profile", [HomeController::class, "get_profile"]);
