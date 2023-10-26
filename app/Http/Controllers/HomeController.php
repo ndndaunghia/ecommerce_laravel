@@ -93,11 +93,11 @@ class HomeController extends Controller
                     $cart->total_price = $product->price * $request->quantity;
                     $cart->price_per_one = $product->price;
                 }
-                Alert::success('Product added successfully', "212121");
                 $cart->save();
             }
+            Alert::success('Product added successfully', "Success Message");
 
-            return redirect()->back()->withToastSuccess('Product added successfully');
+            return redirect()->back();
         } else {
             return redirect('login');
         }
