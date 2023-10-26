@@ -4,12 +4,12 @@
                 <div class="col-md-4">
                     <div class="full">
                         <div class="logo_footer">
-                            <a href="#"><img width="210" src="images/logo.png" alt="#" /></a>
+                            <a href="#"><img width="240" src="images/logo1.png" alt="#" /></a>
                         </div>
                         <div class="information_f">
-                            <p><strong>ADDRESS:</strong> 28 White tower, Street Name New York City, USA</p>
-                            <p><strong>TELEPHONE:</strong> +91 987 654 3210</p>
-                            <p><strong>EMAIL:</strong> yourmain@gmail.com</p>
+                            <p><strong>ADDRESS:</strong> Phenikaa University, Yên Nghĩa, Hà Đông, Hà Nội</p>
+                            <p><strong>TELEPHONE:</strong> 0912345678</p>
+                            <p><strong>EMAIL:</strong> mail@st.phenikaa-uni.edu.vn</p>
                         </div>
                     </div>
                 </div>

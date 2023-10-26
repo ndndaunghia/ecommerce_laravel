@@ -99,9 +99,7 @@
                             <h5>
                                 Fast Delivery
                             </h5>
-                            <p>
-                                variations of passages of Lorem Ipsum available
-                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -214,9 +212,7 @@
                             <h5>
                                 Free Shiping
                             </h5>
-                            <p>
-                                variations of passages of Lorem Ipsum available
-                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -235,9 +231,7 @@
                             <h5>
                                 Best Quality
                             </h5>
-                            <p>
-                                variations of passages of Lorem Ipsum available
-                            </p>
+
                         </div>
                     </div>
                 </div>

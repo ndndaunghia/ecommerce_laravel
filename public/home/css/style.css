@@ -126,7 +126,7 @@ a:focus {
 }
 
 .header_section {
-    padding: 15px 0;
+    padding: 8px 0;
 }
 
 .header_section .container-fluid {
@@ -276,7 +276,7 @@ a:focus {
 }
 
 .slider_section .detail-box h1 {
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: bold;
     margin-bottom: 15px;
     color: #002c3e;
