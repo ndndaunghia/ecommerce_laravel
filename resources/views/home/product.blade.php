@@ -52,6 +52,14 @@
             @endforeach
         </div>
 
+        @if (Session::has('message'))
+        <script>
+            swal("Message", "{{ Session::get('message') }}", 'success', {
+                button: true,
+                button: "OK"
+            })
+        </script>
+        @endif
         <!-- <div class="btn-box">
             <a href="">
                 Show All Products

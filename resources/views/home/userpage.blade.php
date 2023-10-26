@@ -21,6 +21,8 @@
 </head>
 
 <body>
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
     <div class="hero_area">
         <!-- header section strats -->
         @include('home.header')

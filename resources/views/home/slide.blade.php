@@ -16,7 +16,7 @@
                                     Fine texture and stunning coloring.
                                 </p>
                                 <div class="btn-box">
-                                    <a href="" class="btn1">
+                                    <a href="{{ url('get_all_products') }}" class="btn1">
                                         Shop Now
                                     </a>
                                 </div>

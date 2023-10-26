@@ -45,6 +45,10 @@
             float: right;
             margin: 0 24px 20px 0;
         }
+
+        .send-email {
+            background-color: #F875AA;
+        }
     </style>
 </head>
 
@@ -84,6 +88,7 @@
                         <th>Payment Status</th>
                         <th>Delivery Status</th>
                         <th>Delivered</th>
+                        <th>Send Email</th>
                     </tr>
                     @forelse($order as $item)
                     <tr>
@@ -120,6 +125,9 @@
                             @else
                             <p style="color: green; font-weight: bold;">Delivered</p>
                             @endif
+                        </td>
+                        <td>
+                            <a href="{{ url('send_email', $item->id) }}" class="btn send-email">Send Email</a>
                         </td>
                     </tr>
                     @empty

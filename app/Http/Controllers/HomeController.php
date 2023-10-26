@@ -12,6 +12,7 @@ use App\Models\Order;
 use Stripe\Charge;
 use Stripe\Stripe;
 use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -51,8 +52,9 @@ class HomeController extends Controller
     public function product_details($id)
     {
         $product = Product::find($id);
+        $category = Category::all();
 
-        return view('home.product_details', compact('product'));
+        return view('home.product_details', compact('product', 'category'));
     }
 
     public function add_cart(Request $request, $id)
@@ -91,10 +93,11 @@ class HomeController extends Controller
                     $cart->total_price = $product->price * $request->quantity;
                     $cart->price_per_one = $product->price;
                 }
+                Alert::success('Product added successfully', "212121");
                 $cart->save();
             }
 
-            return redirect()->back();
+            return redirect()->back()->withToastSuccess('Product added successfully');
         } else {
             return redirect('login');
         }
@@ -106,11 +109,13 @@ class HomeController extends Controller
             $id = Auth::user()->id;
             $cart = Cart::where('user_id', '=', $id)->get();
             $productCount = $cart->count();
+            $category = Category::all();
+
 
             $subTotal = $cart->sum('total_price');
             session(['subTotal' => $subTotal]);
 
-            return view('home.show_cart', compact('cart', 'productCount', 'subTotal'));
+            return view('home.show_cart', compact('cart', 'productCount', 'subTotal', 'category'));
         } else {
             return redirect('login');
         }
@@ -187,7 +192,8 @@ class HomeController extends Controller
 
     public function stripe($subTotal)
     {
-        return view('home.stripe', compact('subTotal'));
+        $category = Category::all();
+        return view('home.stripe', compact('subTotal', 'category'));
     }
 
     public function stripePost(Request $request, $subTotal)
@@ -253,10 +259,19 @@ class HomeController extends Controller
         return view('home.get_product_by_category', compact('category', 'selected_category', 'products'));
     }
 
-    public function get_profile(){
+    public function get_profile()
+    {
         $user = Auth::user();
         $category = Category::all();
 
         return view('home.get_profile', compact('user', 'category'));
+    }
+
+    public function get_all_products()
+    {
+        $products = Product::all();
+        $category = Category::all();
+
+        return view('home.get_all_products', compact('products', 'category'));
     }
 }

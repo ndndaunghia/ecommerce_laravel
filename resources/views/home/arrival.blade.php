@@ -18,7 +18,7 @@
                         Discover new elevated classics
                         designed for everyday style.
                     </p>
-                    <a href="">
+                    <a href="{{ url('get_all_products') }}">
                         Shop Now
                     </a>
                 </div>

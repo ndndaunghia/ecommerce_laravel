@@ -35,7 +35,7 @@
 
         <div class="container" style="font-size: 16px;">
 
-            <h1 style="text-align: center; padding-bottom: 20px;">Pay Using Your Card - Total Amount {{$subTotal}}</h1>
+            <h1 style="text-align: center; padding-bottom: 20px;">Pay Using Your Card - Total Amount ${{$subTotal}}</h1>
 
             <div class="row">
 

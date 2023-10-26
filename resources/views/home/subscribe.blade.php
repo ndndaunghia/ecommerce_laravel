@@ -7,7 +7,7 @@
                         <div class="heading_container heading_center">
                             <h3>Subscribe To Get Discount Offers</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                        <p>NTN Fashion is always looking for ways to improve your experience. Please tell us what you think.</< /p>
                         <form action="">
                             <input type="email" placeholder="Enter your email">
                             <button>

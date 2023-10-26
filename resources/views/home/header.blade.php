@@ -19,7 +19,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="product.html">Products</a>
+                        <a class="nav-link" href="{{ url('get_all_products') }}">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="blog_list.html">Blog</a>
@@ -54,10 +54,10 @@
                     </li>
                     @else
                     <li class="nav-item mx-2">
-                        <a class="btn btn-primary " href="{{ route('login') }}">Log in</a>
+                        <a class="btn" href="{{ route('login') }}" style="background-color: #A0E9FF;">Sign in</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success" href="{{ route('register') }}">Register</a>
+                        <a class="btn" style="background-color: #F875AA;" href="{{ route('register') }}">Sign up</a>
                     </li>
                     @endauth
                     @endif

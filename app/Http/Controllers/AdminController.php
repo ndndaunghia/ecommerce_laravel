@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Order;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\MyFirstNotification;
 
 class AdminController extends Controller
 {
@@ -127,5 +129,26 @@ class AdminController extends Controller
         $order = Order::where('name', 'LIKE', '%' . $search . '%')->orWhere('phone', 'LIKE', '%' . $search . '%')->get();
 
         return view('admin.order', compact('order'));
+    }
+
+    public function send_email($id)
+    {
+        $order = Order::find($id);
+        return view('admin.email_info', compact('order'));
+    }
+
+    public function send_user_email(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $details = [
+            'greeting' => $request->greeting,
+            'first' => $request->first,
+            'body' => $request->body,
+            'last' => $request->last
+        ];
+
+        Notification::send($order, new MyFirstNotification($details));
+
+        return redirect()->back();
     }
 }

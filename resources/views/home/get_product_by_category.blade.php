@@ -73,7 +73,7 @@
                                     <div class="row">
                                         <div class="options">
                                             <input type="hidden" name="quantity" value="1">
-                                            <input type="submit" value="Add To Cart" class="option1 add-btn">
+                                            <input type="submit" value="Add To Cart" class="option1 add-btn" style="border-radius: 30px">
                                         </div>
                                     </div>
                                 </form>

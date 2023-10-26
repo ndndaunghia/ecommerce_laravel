@@ -51,6 +51,9 @@ Route::get("/delivered/{id}", [AdminController::class, "delivered"]);
 
 Route::get("/search", [AdminController::class, "search_data"]);
 
+Route::get("/send_email/{id}", [AdminController::class, "send_email"]);
+
+Route::post("/send_user_email/{id}", [AdminController::class, "send_user_email"]);
 
 
 
@@ -75,3 +78,7 @@ Route::post('stripe/{subTotal}', [HomeController::class, 'stripePost'])->name('s
 Route::get("/get_product_by_category/{category_name}", [HomeController::class, "get_product_by_category"]);
 
 Route::get("/get_profile", [HomeController::class, "get_profile"]);
+
+Route::get("/get_all_products", [HomeController::class, "get_all_products"]);
+
+
