@@ -43,6 +43,8 @@
 </style>
 
 <body>
+    @include('sweetalert::alert')
+
     <div class="hero_area" style="min-height: 0;">
         <!-- header section start -->
         @include('home.header')
