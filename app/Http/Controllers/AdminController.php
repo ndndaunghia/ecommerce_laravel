@@ -53,11 +53,12 @@ class AdminController extends Controller
         $product->quantity = $request->quantity;
         $product->discount_price = $request->discount_price;
         $product->category = $request->category;
+        $product->image = $request->image;
 
-        $image = $request->image;
-        $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $request->image->move('product', $imagename);
-        $product->image = $imagename;
+        // $image = $request->image;
+        // $imagename = time() . '.' . $image->getClientOriginalExtension();
+        // $request->image->move('product', $imagename);
+        // $product->image = $imagename;
 
         $product->save();
         return redirect()->back()->with("success", "Product added successfully");
@@ -94,12 +95,8 @@ class AdminController extends Controller
         $product->discount_price = $request->discount_price;
         $product->category = $request->category;
 
-        $image = $request->image;
-        if ($image) {
-            $imagename = time() . '.' . $image->getClientOriginalExtension();
-            $request->image->move('product', $imagename);
-            $product->image = $imagename;
-        }
+        $product->image = $request->image;
+
 
         $product->save();
 

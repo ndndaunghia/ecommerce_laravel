@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="img-box">
-                        <img src="product/{{ $product->image }}" alt="">
+                        <img src="{{ $product->image }}" alt="">
                     </div>
                     <div class="detail-box">
                         <h6>

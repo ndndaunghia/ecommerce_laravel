@@ -17,6 +17,8 @@
     th {
         border: 1px solid green;
         border-collapse: collapse;
+        word-wrap: break-word;
+        max-width: 150px;
     }
 
     .title {
@@ -71,9 +73,10 @@
                         <td>{{ $product->quantity }}</td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->discount_price }}</td>
-                        <td>
+                        <td>{{ $product->image }}</td>
+                        <!-- <td>
                             <img class="image_size" src="/product/{{ $product->image }}" alt="">
-                        </td>
+                        </td> -->
                         <td>
                             <a class="btn btn-danger" href="{{ url('delete_product', $product->id) }}" onclick="return confirm('Are You Sure To Delete This Product')">Delete</a>
                         </td>

@@ -99,7 +99,8 @@
                         </div>
                         <div class="div_design">
                             <label for="title">Image</label>
-                            <input type="file" name="image" accept=".jpg, .jpeg, .png, .webp" required>
+                            <input type="url" name="image" class="text_color" id="" required>
+                            <!-- <input type="file" name="image" accept=".jpg, .jpeg, .png, .webp" required> -->
                         </div>
                         <!-- <div class="div_preview_image">
                             <img id="preview-image" src="#" alt="Preview Image" style="display: none;">
@@ -115,7 +116,7 @@
         <!-- plugins:js -->
         @include('admin.script')
         <!-- End custom js for this page -->
-        <script>
+        <!-- <script>
             function previewImage(event) {
                 var reader = new FileReader();
                 reader.onload = function() {
@@ -128,7 +129,7 @@
 
             var fileInput = document.getElementsByName('image')[0];
             fileInput.addEventListener('change', previewImage);
-        </script>
+        </script> -->
 </body>
 
 </html>

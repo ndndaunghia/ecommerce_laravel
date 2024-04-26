@@ -95,13 +95,13 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="div_preview_image">
+                        <!-- <div class="div_preview_image">
                             <label for="title">Current Image</label>
                             <img style="width: 150px; height: 200px; margin: auto;" id="preview-image" src="/product/{{ $product->image }}" alt="Preview Image">
-                        </div>
+                        </div> -->
                         <div class="div_design">
                             <label for="title">Image</label>
-                            <input type="file" name="image" accept=".jpg, .jpeg, .png, .webp" value="{{ $product->image }}">
+                            <input type="url" name="image" class="text_color" value="{{ $product->image }}">
                         </div>
                         <div class="div_design">
                             <input type="submit" value="Update Product" class="btn btn-primary">
@@ -114,7 +114,7 @@
         <!-- plugins:js -->
         @include('admin.script')
         <!-- End custom js for this page -->
-        <script>
+        <!-- <script>
             function previewImage(event) {
                 var reader = new FileReader();
                 reader.onload = function() {
@@ -127,7 +127,7 @@
 
             var fileInput = document.getElementsByName('image')[0];
             fileInput.addEventListener('change', previewImage);
-        </script>
+        </script> -->
 </body>
 
 </html>
